@@ -60,6 +60,45 @@ const plugins = [
       // webhook_secret: process.env.STRIPE_WEBHOOK_SECRET,
     },
   },
+  {
+    resolve: `medusa-plugin-meilisearch`,
+    options: {
+      // config object passed when creating an instance
+      // of the MeiliSearch client
+      config: {
+        host: process.env.MEILISEARCH_HOST,
+        apiKey: process.env.MEILISEARCH_API_KEY,
+      },
+      settings: {
+        products: {
+          indexSettings: {
+            // searchableAttributes: ['title', 'description', 'variant_sku'],
+            // displayedAttributes: [
+            //   'id',
+            //   'title',
+            //   'description',
+            //   'variant_sku',
+            //   'thumbnail',
+            //   'handle',
+            // ],
+            filterableAttributes: [
+              'categories.handle',
+              'variants.prices.amount',
+              'variants.prices.currency_code',
+            ],
+            sortableAttributes: ['title', 'variants.prices.amount'],
+            searchableAttributes: ['title', 'description', 'variant_sku'],
+            displayedAttributes: ['*'],
+            // primaryKey: 'id',
+            // transformer: (product) => ({
+            //   // Custom transformation logic
+            // }),
+          },
+          primaryKey: 'id',
+        },
+      },
+    },
+  },
 ];
 
 const modules = {
