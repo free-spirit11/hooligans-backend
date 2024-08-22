@@ -85,6 +85,8 @@ const plugins = [
               'categories.handle',
               'variants.prices.amount',
               'variants.prices.currency_code',
+              'brand',
+              'variant_options_value',
             ],
             sortableAttributes: ['title', 'variants.prices.amount'],
             searchableAttributes: ['title', 'description', 'variant_sku'],
