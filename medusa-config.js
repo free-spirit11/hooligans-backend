@@ -72,7 +72,18 @@ const plugins = [
       settings: {
         products: {
           indexSettings: {
-            // searchableAttributes: ['title', 'description', 'variant_sku'],
+            searchableAttributes: [
+              'title',
+              'subtitle',
+              'description',
+              'variant_sku',
+              'brand',
+              'model',
+              'variant_options_value',
+              'categories.handle',
+              'variant_title',
+              'variant_sku',
+            ],
             // displayedAttributes: [
             //   'id',
             //   'title',
@@ -89,7 +100,6 @@ const plugins = [
               'variant_options_value',
             ],
             sortableAttributes: ['title', 'variants.prices.amount'],
-            searchableAttributes: ['title', 'description', 'variant_sku'],
             displayedAttributes: ['*'],
             // primaryKey: 'id',
             // transformer: (product) => ({
